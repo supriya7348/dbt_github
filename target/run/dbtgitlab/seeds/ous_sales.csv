@@ -1,0 +1,12 @@
+
+    
+    
+    truncate table "DBT_GITLAB"."DEV"."OUS_SALES";
+    -- dbt seed --
+    
+            insert into dbt_gitlab.dev.ous_sales (ProductID, Date, Zip, Units, Revenue) values
+            (%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s)
+        
+
+;
+  

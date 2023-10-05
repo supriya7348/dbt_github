@@ -1,0 +1,12 @@
+
+    
+    
+    truncate table "DBT_GITLAB"."DEV"."US_SALES_2000_TO_2016";
+    -- dbt seed --
+    
+            insert into dbt_gitlab.dev.us_sales_2000_to_2016 (ProductID, Date, Zip, Units, Revenue) values
+            (%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s)
+        
+
+;
+  

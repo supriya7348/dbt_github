@@ -1,0 +1,12 @@
+
+    
+    
+    truncate table "DBT_GITLAB"."DEV"."ZIP_USA_MASTER";
+    -- dbt seed --
+    
+            insert into dbt_gitlab.dev.zip_usa_master (CountryISOCode, PostalCode, PlaceName, AdminName1, CodeName1, AdminName2, CodeName2, AdminName3, CodeName3, latitude, longitude, accuracy) values
+            (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
+        
+
+;
+  

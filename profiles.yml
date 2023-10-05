@@ -1,0 +1,14 @@
+dbtgitlab:
+  target: dev
+  outputs:
+    dev:
+      type: snowflake
+      account: qh16214.ap-southeast-1
+      database: dbt_gitlab
+      warehouse: DBT
+      schema: dev
+      role: SYSADMIN
+      threads: 1
+      user: "{{ env_var('dbtu') }}"  # jinja to access env var, can use diect also in '.gitlab-cicd.yml' file
+      password: "{{ env_var('dbtp') }}"
+  

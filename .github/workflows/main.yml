@@ -1,5 +1,18 @@
-dbt_build:
-  stage: build
-  image: xemuliam/dbt
-  script:
-    - echo "hello"
+name: Run dbt with Docker
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  dbt_job:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Run dbt Docker Container
+      run: |
+        docker run --rm -v ${{ github.workspace }}:/usr/src/app -w /usr/src/app xemuliam/dbt dbt run

@@ -1,0 +1,56 @@
+# stages:
+#   - build
+#   - deploy
+
+# build:
+#   stage: build
+#   script:
+#     - echo "Building the application"
+
+# deploy:
+#   stage: deploy
+#   script:
+#     - echo "Deploying the application"
+
+
+dbt_build:
+  stage: build
+  image: xemuliam/dbt
+  script:
+    - echo "hello"
+    - dbt --version
+    - export dbtu=dbt_sup
+    - export dbtp=dbt123 #can use directly or as env varialbe
+    #- export git_pass=$git_pass line not required if using $git_pass directory. 
+    - dbt seed
+    - dbt test
+    - dbt docs generate
+
+    - apt-get update
+    - apt-get install -y git
+    
+    - git config user.email "priyasupriya2018@gmail.com"
+    - git config user.name "supriya"
+
+    # - git remote set-url origin https://supriyar1:$pass@gitlab.com/supriya8755239/learn_dbt.git #direct access to pass
+                                # https://skushwaha2:$git_pass@gitlab.com/supriya8755239/dbt.git 
+    - git add .
+    - git commit -m "Add dbt target folder"
+    - git push origin HEAD:main -o ci.skip #prevent loop
+  
+  artifacts:
+    paths:
+      - target
+  only:
+    - main
+
+# # pages:
+#   # stage: deploy
+#   # script:
+#   #   - mv target/ public/
+#   # artifacts:
+#   #   paths:
+#   #     - public/
+#   # only:
+#   #   - main
+

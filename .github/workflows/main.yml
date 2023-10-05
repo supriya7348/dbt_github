@@ -27,3 +27,12 @@ jobs:
     - name: Generate dbt Documentation
       run: |
         docker run --rm -v ${{ github.workspace }}:/usr/src/app -w /usr/src/app xemuliam/dbt dbt docs generate
+    
+    - name: Archive Artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: dbt_target
+        path: target
+
+# Specify when to run this job (in this case, only on pushes to the main branch)
+# If you have other jobs, make sure to define this section within the appropriate job
